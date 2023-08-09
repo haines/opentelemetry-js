@@ -22,13 +22,13 @@ import {
 export class InstrumentationNodeModuleDefinition<T>
   implements InstrumentationModuleDefinition<T>
 {
-  files: InstrumentationModuleFile<T>[];
+  files: InstrumentationModuleFile<unknown>[];
   constructor(
     public name: string,
     public supportedVersions: string[],
     public patch?: (exports: T, moduleVersion?: string) => T,
     public unpatch?: (exports: T, moduleVersion?: string) => void,
-    files?: InstrumentationModuleFile<any>[]
+    files?: InstrumentationModuleFile<unknown>[]
   ) {
     this.files = files || [];
   }
